@@ -59,34 +59,12 @@
 ユーザー中心の戦略策定に活用します。"
 ```
 
-## プロジェクト管理
-### 新規プロジェクト開始時
-```bash
-# プロジェクトを初期化
-./lib/project_manager.sh init "[プロジェクト名]" "[タイプ]" "[説明]"
-
-# プロジェクトコンテキストを確認
-./lib/project_manager.sh context
-```
-
-### 既存プロジェクト継続時
-```bash
-# プロジェクトに切り替え
-./lib/project_manager.sh switch "[プロジェクト名]"
-
-# コンテキストを読み込み
-./lib/project_manager.sh context
-```
-
 ## 指示を受けた時の実行手順
 ```bash
 # 深い理解と戦略的な指示をboss1に送信
 ./agent-send.sh boss1 "あなたはboss1です。
 
 【プロジェクト名】[具体的なプロジェクト名]
-
-重要: プロジェクトコンテキストを必ず参照してください
-./lib/project_manager.sh context [プロジェクト名]
 
 【ビジョン】
 [ユーザーが実現したい理想の状態]
