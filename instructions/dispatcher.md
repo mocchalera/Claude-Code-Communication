@@ -19,6 +19,35 @@
 | worker1 | - | - | - | - |
 | worker2 | - | - | - | - |
 | worker3 | - | - | - | - |
+| ui_ux_designer | UI/UXデザイン | - | デザイン、UI実装 | - |
+```
+
+### デザインタスクの特別な扱い
+```bash
+# UI/UXデザインタスクの検出と割り当て
+if [[ "$TASK_TYPE" =~ "design|ui|ux|interface|mockup|wireframe" ]]; then
+    # 専門デザイナーが利用可能な場合
+    if [[ "$UI_UX_DESIGNER_AVAILABLE" == "true" ]]; then
+        ./agent-send.sh ui_ux_designer "あなたはui_ux_designerです。
+        【デザインタスク】$TASK_NAME
+        
+        重要: 必ず ./docs/デザイン実装ガイドライン.md を参照してください。
+        
+        【要件】
+        - $DESIGN_REQUIREMENTS
+        
+        ガイドラインに従って実装をお願いします。"
+    else
+        # 通常のworkerに割り当てる場合も、ガイドライン参照を指示
+        ./agent-send.sh worker1 "あなたはworker1です。
+        【デザイン関連タスク】$TASK_NAME
+        
+        重要: UI/UXタスクのため、必ず以下を実行してください：
+        cat ./docs/デザイン実装ガイドライン.md
+        
+        ガイドラインに従って実装をお願いします。"
+    fi
+fi
 ```
 
 ## タスク割り当てアルゴリズム

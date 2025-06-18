@@ -15,6 +15,7 @@ get_agent_target() {
         "ux_researcher") echo "specialist:0.1" ;;
         "integrator") echo "specialist:1.0" ;;
         "qa_tester") echo "specialist:1.1" ;;
+        "ui_ux_designer") echo "specialist:0.2" ;;
         *) echo "" ;;
     esac
 }
@@ -36,6 +37,7 @@ show_usage() {
   dispatcher     - 動的タスク割り当て
   market_analyst - 市場分析担当
   ux_researcher  - UXリサーチ担当
+  ui_ux_designer - UI/UXデザイン担当
   integrator     - 統合担当
   qa_tester      - 品質保証担当
 
@@ -54,6 +56,7 @@ show_agents() {
     echo "  president      → president:0       (プロジェクト統括責任者)"
     echo "  market_analyst → specialist:0.0    (市場分析担当)"
     echo "  ux_researcher  → specialist:0.1    (UXリサーチ担当)"
+    echo "  ui_ux_designer → specialist:0.2    (UI/UXデザイン担当)"
     echo ""
     echo "【管理層】"
     echo "  boss1          → multiagent:0.0    (チームリーダー)"
